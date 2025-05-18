@@ -12,6 +12,11 @@ body {
     padding: 0;
 }
 
+body.dark {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;

@@ -17,3 +17,12 @@ module.exports = {
     },
     plugins: [],
 };
+
+module.exports = {
+    darkMode: 'class', // <-- Important!
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+};

@@ -12,7 +12,8 @@ export default function HeroSection({
 <section
   className="relative h-[60vh] w-full overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center px-4"
   style={{
-    backgroundImage: "url('/images/covid-hero.jpg')",
+    backgroundImage: `url(${process.env.PUBLIC_URL}/images/covid-hero.jpg)`
+
   }}
 >
   {/* White overlay */}

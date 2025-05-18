@@ -8,6 +8,21 @@ import SearchResults from "./components/SearchResults";
 import { motion } from "framer-motion";
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("dark") === "true";
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+    localStorage.setItem("dark", darkMode);
+  }, [darkMode]);
+
+
+export default function App() {
   const [country, setCountry] = useState("");
   const [province, setProvince] = useState("");
   const [data, setData] = useState(null);
@@ -82,6 +97,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-grey text-black font-sans">
+     <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="bg-blue-500 text-white px-4 py-2 rounded shadow"
+        >
+          {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+        </button>
       <main>
         <HeroSection
           country={country}
