@@ -7,6 +7,8 @@ export default function HeroSection({
   setCountry,
   setProvince,
   handleSearch,
+  darkMode,
+  setDarkMode,
 }) {
   return (
 <section
@@ -30,13 +32,21 @@ export default function HeroSection({
     <p className="text-lg md:text-xl text-black-700 mb-6 max-w-xl">
       Explore real-time global data, country insights, and predictive trends.
     </p>
+
     <SearchForm
       country={country}
       province={province}
       setCountry={setCountry}
       setProvince={setProvince}
       handleSearch={handleSearch}
+
     />
+    <button
+    onClick={() => setDarkMode(!darkMode)}
+    className="bg-blue-500 text-white px-4 py-2 rounded shadow"
+  >
+    {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+  </button>
   </div>
 
   {/* ✅ Move Compare Button Here */}
