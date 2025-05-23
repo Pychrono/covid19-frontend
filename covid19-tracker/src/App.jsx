@@ -6,6 +6,7 @@ import WorldMap from "./components/WorldMap";
 import SearchResults from "./components/SearchResults";
 // import SearchForm from "./components/SearchResults";
 import { motion } from "framer-motion";
+import { ScrollToTopButton } from "./components/ScrollToTop"; 
 
 
 export default function App() {
@@ -95,7 +96,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen font-sans ${darkMode ? "bg-gray-950 text-white" : "bg-white text-black"}`}>
+    <div className={`min-h-screen font-sans ${darkMode ? "bg-[#00020C] text-white" : "bg-white text-black"}`}>
       <main>
         <HeroSection
           country={country}
@@ -113,7 +114,7 @@ export default function App() {
         >
           {stats || data ? (
             <motion.div
-              className="bg-white border border-gray-200 rounded-2xl shadow-xl p-8 max-w-6xl mx-auto"
+              className="bg-white dark:bg-surface border border-gray-200 dark:border-none rounded-2xl shadow-xl p-8 max-w-6xl mx-auto"
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -129,25 +130,27 @@ export default function App() {
                 loading={loading}
                 results={results}
                 colors={colors}
+                darkMode={darkMode}
               />
             </motion.div>
           ) : null}
         </section>
         <section className={stats || data ? "mt-10" : "mt-1"}>
-          <div className="bg-white rounded-2xl shadow-md p-8 max-w-7xl mx-auto">
-            <GlobalDashboard />
+          <div className="bg-white dark:bg-surface rounded-2xl shadow-md p-8 max-w-7xl mx-auto">
+            <GlobalDashboard darkMode={darkMode}/>
           </div>
         </section>
 
         <section id="compare-section" className="py-4 px-4">
           <div>
-            <ComparisonTool />
+            <ComparisonTool/>
           </div>
         </section>
 
         <section className="mt-12">
           <WorldMap />
         </section>
+        <ScrollToTopButton />
       </main>
     </div>
   );

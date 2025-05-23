@@ -19,10 +19,15 @@ module.exports = {
 };
 
 module.exports = {
-    darkMode: 'class', // <-- Important!
-    content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+    darkMode: 'class',
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                background: "#00020C",
+                surface: "#000412",
+            },
+        },
     },
+    content: ["./src/**/*.{js,jsx,ts,tsx}"],
     plugins: [],
 };
